@@ -6,23 +6,48 @@ const countDownString = "countdown";
 const tipsHelper = "tips";
 const rndNumber = "rndNumber";
 const rndNumberLi = "rndNumbGenerate";
+const inputUl = "inputUl";
+const inputClass = "inputNumbers";
+const btnSubmit = "btnGuessedNumbers";
 //Reference HTML
 const eleCountDown = document.getElementById(countDownString);
 const eleTips = document.getElementById(tipsHelper);
+
 const ulEleRndNumber = document.getElementById(rndNumber);
+const ulEleInput = document.getElementById(inputUl);
 
-let timeLeftCountDown = 3;
+const eleBtnSubmit = document.getElementById(btnSubmit);
+//variables
+const numbToGuessArray = [];//array for generated numbers
+const numUserInsert = [];
 
+//generate li and give rnd number, then append to ul in HTML
 for(let i = 0; i<5;i++){
     const liEleRndNumber = document.createElement("li");
-    liEleRndNumber.classList.add(rndNumberLi);
-    liEleRndNumber.innerHTML = RandomNumGen(99,1);
-
+    liEleRndNumber.classList.add("rndNumberLi");
+    
+    const randomNum = RandomNumGen(99, 1);
+    liEleRndNumber.innerHTML = randomNum;
+    
+    numbToGuessArray.push(randomNum);
+    
     ulEleRndNumber.appendChild(liEleRndNumber);
+    
+}
+console.log(numbToGuessArray);
+//generate the input numbers for guessing numbers
+for(let i = 0; i<5; i++){
+    const inputEleUserNumbers = document.createElement("input");
+    inputEleUserNumbers.classList.add(inputClass);
+    ulEleInput.appendChild(inputEleUserNumbers);
 }
 
+eleBtnSubmit.addEventListener("click", function(event){
+    event.preventDefault();
 
+});
 
+let timeLeftCountDown = 3;
 const countDownVar = setInterval(() => {
     CountDownToMemorize();
 }, SetTimeSeconds(1));

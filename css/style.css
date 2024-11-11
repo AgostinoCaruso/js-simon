@@ -2,6 +2,10 @@ ul{
     list-style: none;
 }
 
+input{
+    width: 80px;
+}
+
 .space-from-top{
     margin-top: 50px;
     text-align: center;
@@ -27,4 +31,9 @@ body{
 }
 .rndNumbGenerate{
     width: 80px;
+}
+#inputUl{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }
