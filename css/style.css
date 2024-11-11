@@ -10,3 +10,10 @@ ul{
     width: 75%;
     margin:0 auto;
 }
+.space-from-top li{
+    font-size: 2em;
+}
+/* countdown */
+#countdown{
+    font-size: 3em;
+}
