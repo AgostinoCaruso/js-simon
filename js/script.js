@@ -22,7 +22,10 @@ const ulEleInput = document.getElementById(inputUl);
 const eleBtnSubmit = document.getElementById(btnSubmit);
 //variables
 const numbToGuessArray = [];//array for generated numbers
-const numUserInsert = [];
+const numUserInsert = [];//input user numbers
+const numGuessed = [];//guessed numbers
+const wrongNumGuessed = [];
+let counterGuessedNumbers= 0;//keep track of guessed numbers
 
 //Start program
 //set countDown timer
@@ -33,7 +36,6 @@ const countDownVar = setInterval(() => {
 
 //generate li and give rnd number, then append to ul in HTML
 GenerateRandomNumbers();
-console.log(numbToGuessArray);
 
 //generate the input numbers for guessing numbers
 GenerateInputNumbers();
@@ -46,8 +48,36 @@ eleBtnSubmit.addEventListener("click", function (event) {
         
         numUserInsert.push(inputs[i].value);
     }
-    console.log(numUserInsert);
+    CheckIfGuessedRight();
 });
+
+//Check if user guessed a correct number from rnd generated
+
+
+function CheckIfGuessedRight(){
+    for(let i = 0; i < numbToGuessArray.length; i++){
+        let foundMatch = false;
+        for(let j = 0; j < numUserInsert.length; j++){
+            if(numbToGuessArray[i] == numUserInsert[j]){
+                counterGuessedNumbers++;
+                numGuessed.push(numbToGuessArray[i]);
+                foundMatch = true;
+                break;
+            }
+        }
+        if(!foundMatch){
+            wrongNumGuessed.push(numbToGuessArray[i]);
+        }
+    }
+    
+    console.log(`num guess:  ${counterGuessedNumbers}, which are(${numGuessed}) and wrong(${wrongNumGuessed})`);
+}
+
+
+
+
+
+
 
 
 
