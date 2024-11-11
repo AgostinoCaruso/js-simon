@@ -32,6 +32,9 @@ body{
 .rndNumbGenerate{
     width: 80px;
 }
+#rndNumber{
+    padding: 20px;
+}
 #inputUl{
     display: flex;
     justify-content: center;
