@@ -1,0 +1,12 @@
+ul{
+    list-style: none;
+}
+
+.space-from-top{
+    margin-top: 50px;
+    text-align: center;
+}
+.space-from-top div ul{
+    width: 75%;
+    margin:0 auto;
+}
