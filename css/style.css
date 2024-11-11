@@ -4,6 +4,8 @@ ul{
 
 input{
     width: 80px;
+    text-align: center;
+    font-size: 2em;
 }
 
 .space-from-top{
@@ -32,6 +34,10 @@ body{
 .rndNumbGenerate{
     width: 80px;
 }
+#tips{
+    font-size: 1.3em;
+    
+}
 #rndNumber{
     padding: 20px;
 }
@@ -39,4 +45,7 @@ body{
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+.red-font{
+    color: red;
 }

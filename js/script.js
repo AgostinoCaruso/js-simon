@@ -49,62 +49,15 @@ eleBtnSubmit.addEventListener("click", function (event) {
         numUserInsert.push(inputs[i].value);
     }
     CheckIfGuessedRight();
+    eleBtnSubmit.classList.add(dNoneClass);
 });
 
 //Check if user guessed a correct number from rnd generated
 
 
-function CheckIfGuessedRight(){
-    for(let i = 0; i < numbToGuessArray.length; i++){
-        let foundMatch = false;
-        for(let j = 0; j < numUserInsert.length; j++){
-            if(numbToGuessArray[i] == numUserInsert[j]){
-                counterGuessedNumbers++;
-                numGuessed.push(numbToGuessArray[i]);
-                foundMatch = true;
-                break;
-            }
-        }
-        if(!foundMatch){
-            wrongNumGuessed.push(numbToGuessArray[i]);
-        }
-    }
-    
-    console.log(`num guess:  ${counterGuessedNumbers}, which are(${numGuessed}) and wrong(${wrongNumGuessed})`);
-}
-
-
-
-
-
-
-
 
 
 //function
-function GenerateInputNumbers() {
-    for (let i = 0; i < 5; i++) {
-        const inputEleUserNumbers = document.createElement("input");
-        inputEleUserNumbers.classList.add(inputClass);
-        ulEleInput.appendChild(inputEleUserNumbers);
-    }
-}
-
-function GenerateRandomNumbers() {
-    for (let i = 0; i < 5; i++) {
-        const liEleRndNumber = document.createElement("li");
-        liEleRndNumber.classList.add(rndNumberLi);
-
-        const randomNum = RandomNumGen(99, 1);
-        liEleRndNumber.innerHTML = randomNum;
-
-        numbToGuessArray.push(randomNum);
-
-        ulEleRndNumber.appendChild(liEleRndNumber);
-
-    }
-}
-
 function CountDownToMemorize() {
     eleCountDown.innerHTML = timeLeftCountDown;
 
@@ -121,6 +74,52 @@ function CountDownToMemorize() {
         eleTips.innerHTML = "Scrivi i numeri che hai memorizzato!!";
     }
 }
+function GenerateInputNumbers() {
+    for (let i = 0; i < 5; i++) {
+        const inputEleUserNumbers = document.createElement("input");
+        inputEleUserNumbers.classList.add(inputClass);
+        ulEleInput.appendChild(inputEleUserNumbers);
+    }
+}
+
+function GenerateRandomNumbers() {
+    for (let i = 0; i < 5; i++) {
+        const liEleRndNumber = document.createElement("li");
+        liEleRndNumber.classList.add(rndNumberLi);
+        
+        const randomNum = RandomNumGen(99, 1);
+        liEleRndNumber.innerHTML = randomNum;
+        
+        numbToGuessArray.push(randomNum);
+        
+        ulEleRndNumber.appendChild(liEleRndNumber);
+        
+    }
+}
+//i removed the second for index j just to make sure that i can write red all wrong numb of index i
+function CheckIfGuessedRight(){
+    for(let i = 0; i < numbToGuessArray.length; i++){
+        let foundMatch = false;
+            if(numbToGuessArray[i] == numUserInsert[i]){
+                counterGuessedNumbers++;
+                numGuessed.push(numbToGuessArray[i]);
+                foundMatch = true;
+                wrongNumGuessed.push("nan");
+        }
+        if(!foundMatch){
+            wrongNumGuessed.push(numbToGuessArray[i]);
+        }
+    }
+    for(let i =0; i <numbToGuessArray.length; i++){
+        if(!isNaN(wrongNumGuessed[i])){
+            inputs[i].value = wrongNumGuessed[i];
+            inputs[i].classList.add("red-font");
+        }
+    }
+    eleTips.innerHTML = `num guess:  ${counterGuessedNumbers}, guessed numbers are:${numGuessed}`;
+    console.log(`num guess:  ${counterGuessedNumbers}, which are(${numGuessed}) and wrong(${wrongNumGuessed})`);
+}
+
 
 //Utility function
 function RandomNumGen(max, min) {
