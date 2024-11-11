@@ -17,3 +17,14 @@ ul{
 #countdown{
     font-size: 3em;
 }
+body{
+    background-color: grey;
+    margin-top: 50px;
+}
+
+.d-none{
+    display: none;
+}
+.rndNumbGenerate{
+    width: 80px;
+}
