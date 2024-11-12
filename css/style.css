@@ -6,22 +6,33 @@ input{
     width: 80px;
     text-align: center;
     font-size: 2em;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    box-shadow: 1px 1px 10px;
 }
-
+.no-spin {
+    -webkit-appearance: none;  /* Chrome, Safari, Edge, Opera */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;      /* Per compatibilità generale */
+}
 .space-from-top{
     margin-top: 50px;
     text-align: center;
 }
 .space-from-top div ul{
-    width: 75%;
-    margin:0 auto;
+    /* width: 75%;
+    margin:0 auto; */
 }
 .space-from-top li{
     font-size: 2em;
 }
 /* countdown */
 #countdown{
-    font-size: 3em;
+    font-size: 4em;
 }
 body{
     background-color: grey;
@@ -32,14 +43,14 @@ body{
     display: none;
 }
 .rndNumbGenerate{
-    width: 80px;
+    /* width: 40px; */
 }
 #tips{
     font-size: 1.3em;
-    
 }
 #rndNumber{
-    padding: 20px;
+    /* margin: 20px; */
+    font-size: 1.5em;
 }
 #inputUl{
     display: flex;
@@ -48,4 +59,14 @@ body{
 }
 .red-font{
     color: red;
+    background-color: black;
+    box-shadow: 1px 1px 10px;
+}
+.green-font{
+    color: green;
+    background-color: black;
+    box-shadow: 1px 1px 10px;
+}
+.div-input{
+    margin: 10px 0px;
 }
